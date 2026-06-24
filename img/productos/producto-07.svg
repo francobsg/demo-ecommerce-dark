@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-label="Producto placeholder 7">
+  <rect width="900" height="900" rx="70" fill="#f4f5f8"/>
+  <circle cx="450" cy="360" r="175" fill="#8c5cff" opacity=".18"/>
+  <path d="M280 245 L380 190 H520 L620 245 L575 365 V705 H325 V365 Z" fill="#10131f"/>
+  <path d="M380 190 C400 245 500 245 520 190" fill="none" stroke="#8c5cff" stroke-width="18" stroke-linecap="round"/>
+  <text x="450" y="805" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800" fill="#10131f">PRODUCTO 07</text>
+</svg>

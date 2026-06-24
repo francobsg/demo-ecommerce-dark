@@ -1,0 +1,12 @@
+Licencia de uso de la plantilla
+
+El comprador puede:
+- Usar esta plantilla en proyectos personales o comerciales.
+- Modificar textos, colores, imágenes y productos.
+- Adaptarla para una marca o negocio propio.
+
+El comprador no puede:
+- Revender esta plantilla como plantilla independiente sin modificaciones significativas.
+- Redistribuir el ZIP original como producto propio.
+
+Nota: esta plantilla es frontend y no incluye backend ni pagos reales.

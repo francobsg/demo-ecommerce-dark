@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plantilla e-commerce responsive en HTML, CSS y JavaScript vanilla.">
+  <title>Productos - Plantilla E-commerce</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- ================== NAVEGACIÓN ================== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- PERSONALIZAR LOGO: reemplaza img/logo-placeholder.svg por el logo real de la tienda. -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/logo-placeholder.svg" alt="Logo de la tienda">
+        </a>
+      </div>
+
+      <div class="nav-search">
+        <button type="button" id="headerSearchToggle" class="search-toggle" aria-label="Buscar">
+          <img src="img/icon-search.svg" alt="Buscar" class="search-icon">
+        </button>
+        <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Buscar productos...">
+      </div>
+
+      <!-- PERSONALIZAR MENÚ: puedes agregar o quitar enlaces según el negocio. -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link ">Inicio</a></li>
+        <li><a href="productos.html" class="nav-link active">Productos</a></li>
+        <li><a href="contacto.html" class="nav-link ">Contacto</a></li>
+        <li><a href="carrito.html" class="nav-link ">Carrito <span id="cartBadge" class="cart-badge">0</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ================== ENCABEZADO ================== -->
+  <header class="page-header">
+    <h1>Productos</h1>
+    <p>Explora el catálogo de la tienda</p>
+  </header>
+
+  <!-- ================== CATÁLOGO ================== -->
+  <main class="container">
+    <section class="productos-section">
+      <!-- PERSONALIZAR FILTROS: si cambias las categorías en js/carrito.js, actualiza también estos values. -->
+      <aside class="filtros-sidebar">
+        <h3>Filtrar productos</h3>
+
+        <div class="filtro-grupo">
+          <label class="filtro-titulo">Categoría</label>
+          <div class="filtro-opciones">
+            <label class="filtro-checkbox"><input type="checkbox" value="ropa" class="filtro-categoria"><span>Ropa</span></label>
+            <label class="filtro-checkbox"><input type="checkbox" value="accesorios" class="filtro-categoria"><span>Accesorios</span></label>
+            <label class="filtro-checkbox"><input type="checkbox" value="calzado" class="filtro-categoria"><span>Calzado</span></label>
+          </div>
+        </div>
+
+        <div class="filtro-grupo">
+          <label class="filtro-titulo">Precio</label>
+          <div class="filtro-range">
+            <input type="range" min="0" max="100" step="0.01" value="100" id="precioRange" class="range-slider">
+            <p>Hasta: USD <span id="precioValue">100.00</span></p>
+          </div>
+        </div>
+
+        <div class="filtro-grupo">
+          <label class="filtro-titulo">Talla / opción</label>
+          <div class="filtro-opciones">
+            <label class="filtro-checkbox"><input type="checkbox" value="XS" class="filtro-talla"><span>XS</span></label>
+            <label class="filtro-checkbox"><input type="checkbox" value="S" class="filtro-talla"><span>S</span></label>
+            <label class="filtro-checkbox"><input type="checkbox" value="M" class="filtro-talla"><span>M</span></label>
+            <label class="filtro-checkbox"><input type="checkbox" value="L" class="filtro-talla"><span>L</span></label>
+            <label class="filtro-checkbox"><input type="checkbox" value="XL" class="filtro-talla"><span>XL</span></label>
+            <label class="filtro-checkbox"><input type="checkbox" value="Única" class="filtro-talla"><span>Única</span></label>
+          </div>
+        </div>
+
+        <button class="btn-reset-filtros" id="resetFiltros">Limpiar filtros</button>
+      </aside>
+
+      <div class="productos-main">
+        <div class="search-bar">
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar productos...">
+          <button id="searchBtn" class="search-btn">🔍</button>
+        </div>
+        <p class="productos-info-text">PERSONALIZAR: cambia este texto por una descripción breve del catálogo.</p>
+
+        <div class="productos-grid" id="productosGrid">
+          <!-- JS: aquí se renderizan los productos definidos en js/carrito.js. -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <!-- PERSONALIZAR MARCA: cambia el nombre y la descripción de la tienda. -->
+        <h4>Sobre [NOMBRE DE TU TIENDA]</h4>
+        <p>Plantilla adaptable para tiendas de ropa, accesorios, productos digitales o catálogos comerciales.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Enlaces rápidos</h4>
+        <ul>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Políticas de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <!-- PERSONALIZAR CONTACTO: reemplaza estos datos por los del negocio. -->
+        <h4>Contacto</h4>
+        <p>Email: contacto@tutienda.com</p>
+        <p>Tel: +56 9 1234 5678</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 [NOMBRE DE TU TIENDA]. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/carrito.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/filtros.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      cargarProductos();
+      actualizarBadgeCarrito();
+      inicializarFiltros();
+    });
+  </script>
+</body>
+</html>

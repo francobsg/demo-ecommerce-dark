@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plantilla e-commerce responsive en HTML, CSS y JavaScript vanilla.">
+  <title>Carrito - Plantilla E-commerce</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- ================== NAVEGACIÓN ================== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- PERSONALIZAR LOGO: reemplaza img/logo-placeholder.svg por el logo real de la tienda. -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/logo-placeholder.svg" alt="Logo de la tienda">
+        </a>
+      </div>
+
+      <div class="nav-search">
+        <button type="button" id="headerSearchToggle" class="search-toggle" aria-label="Buscar">
+          <img src="img/icon-search.svg" alt="Buscar" class="search-icon">
+        </button>
+        <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Buscar productos...">
+      </div>
+
+      <!-- PERSONALIZAR MENÚ: puedes agregar o quitar enlaces según el negocio. -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link ">Inicio</a></li>
+        <li><a href="productos.html" class="nav-link ">Productos</a></li>
+        <li><a href="contacto.html" class="nav-link ">Contacto</a></li>
+        <li><a href="carrito.html" class="nav-link active">Carrito <span id="cartBadge" class="cart-badge">0</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ================== ENCABEZADO ================== -->
+  <header class="page-header">
+    <h1>Carrito de compras</h1>
+    <p>Revisa tus productos antes de continuar</p>
+  </header>
+
+  <!-- ================== CARRITO ================== -->
+  <main class="container">
+    <section class="carrito-section">
+      <div class="carrito-main">
+        <table class="carrito-table" id="carritoTable">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="carritoBody">
+            <!-- JS: el carrito se llena automáticamente desde localStorage. -->
+          </tbody>
+        </table>
+
+        <div id="carritoVacio" class="carrito-vacio" style="display: none;">
+          <p>Tu carrito está vacío</p>
+          <a href="productos.html" class="btn-primary">Continuar comprando</a>
+        </div>
+      </div>
+
+      <aside class="carrito-resumen" id="resumenCarrito">
+        <h3>Resumen de compra</h3>
+        <div class="resumen-item"><span>Subtotal:</span><span id="subtotal">USD 0.00</span></div>
+        <div class="resumen-item"><span>Envío:</span><span id="envio">USD 0.00</span></div>
+        <div class="resumen-item"><span>Descuento:</span><span id="descuento">USD 0.00</span></div>
+        <div class="resumen-total"><span>Total:</span><span id="total">USD 0.00</span></div>
+
+        <!-- PERSONALIZAR CUPONES: edita los códigos en js/carrito.js, objeto codigoDescuentos. -->
+        <div class="cupon-section">
+          <input type="text" id="codigoDescuento" class="cupon-input" placeholder="Código de descuento">
+          <button id="aplicarCupon" class="btn-cupon">Aplicar</button>
+        </div>
+
+        <button class="btn-checkout">Proceder al pago</button>
+        <a href="productos.html" class="btn-continue">Continuar comprando</a>
+      </aside>
+    </section>
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <!-- PERSONALIZAR MARCA: cambia el nombre y la descripción de la tienda. -->
+        <h4>Sobre [NOMBRE DE TU TIENDA]</h4>
+        <p>Plantilla adaptable para tiendas de ropa, accesorios, productos digitales o catálogos comerciales.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Enlaces rápidos</h4>
+        <ul>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Políticas de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <!-- PERSONALIZAR CONTACTO: reemplaza estos datos por los del negocio. -->
+        <h4>Contacto</h4>
+        <p>Email: contacto@tutienda.com</p>
+        <p>Tel: +56 9 1234 5678</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 [NOMBRE DE TU TIENDA]. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/carrito.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      mostrarCarrito();
+      actualizarResumenCompra();
+      actualizarBadgeCarrito();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <!-- Banner decorativo sin texto: el título y el botón se editan desde index.html para evitar duplicados. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10131f"/>
+      <stop offset="0.55" stop-color="#241332"/>
+      <stop offset="1" stop-color="#0a0d14"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.04"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#ff72e5"/>
+      <stop offset="1" stop-color="#ffb002"/>
+    </linearGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="45"/>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <circle cx="270" cy="220" r="260" fill="#ff72e5" opacity="0.22" filter="url(#blur)"/>
+  <circle cx="1660" cy="180" r="300" fill="#72ffd6" opacity="0.16" filter="url(#blur)"/>
+  <circle cx="1310" cy="900" r="360" fill="#8c5cff" opacity="0.18" filter="url(#blur)"/>
+
+  <g opacity="0.95" transform="translate(1120 220)">
+    <rect x="0" y="0" width="520" height="640" rx="46" fill="url(#card)" stroke="#ffffff" stroke-opacity="0.18"/>
+    <rect x="58" y="70" width="404" height="330" rx="34" fill="#ffffff" opacity="0.08"/>
+    <path d="M160 350 C210 245 315 245 360 350" fill="none" stroke="url(#accent)" stroke-width="20" stroke-linecap="round" opacity="0.9"/>
+    <rect x="78" y="450" width="250" height="28" rx="14" fill="#ffffff" opacity="0.18"/>
+    <rect x="78" y="505" width="360" height="22" rx="11" fill="#ffffff" opacity="0.11"/>
+    <rect x="78" y="552" width="280" height="22" rx="11" fill="#ffffff" opacity="0.08"/>
+  </g>
+
+  <g opacity="0.5" transform="translate(820 470) rotate(-8)">
+    <rect x="0" y="0" width="270" height="340" rx="34" fill="#ffffff" opacity="0.10" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="42" y="48" width="186" height="190" rx="24" fill="#ffffff" opacity="0.08"/>
+    <rect x="42" y="270" width="170" height="20" rx="10" fill="#ffffff" opacity="0.14"/>
+  </g>
+
+  <g opacity="0.42" stroke="#ffffff" stroke-width="4">
+    <path d="M80 875 C360 760 560 950 820 820 S1270 685 1840 790" fill="none"/>
+    <path d="M110 940 C430 835 610 1010 900 905 S1320 800 1810 890" fill="none" opacity="0.5"/>
+  </g>
+</svg>

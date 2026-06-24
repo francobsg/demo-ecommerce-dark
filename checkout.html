@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plantilla e-commerce responsive en HTML, CSS y JavaScript vanilla.">
+  <title>Checkout - Plantilla E-commerce</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- ================== NAVEGACIÓN ================== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- PERSONALIZAR LOGO: reemplaza img/logo-placeholder.svg por el logo real de la tienda. -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/logo-placeholder.svg" alt="Logo de la tienda">
+        </a>
+      </div>
+
+      <div class="nav-search">
+        <button type="button" id="headerSearchToggle" class="search-toggle" aria-label="Buscar">
+          <img src="img/icon-search.svg" alt="Buscar" class="search-icon">
+        </button>
+        <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Buscar productos...">
+      </div>
+
+      <!-- PERSONALIZAR MENÚ: puedes agregar o quitar enlaces según el negocio. -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link ">Inicio</a></li>
+        <li><a href="productos.html" class="nav-link ">Productos</a></li>
+        <li><a href="contacto.html" class="nav-link ">Contacto</a></li>
+        <li><a href="carrito.html" class="nav-link ">Carrito <span id="cartBadge" class="cart-badge">0</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container checkout-page">
+    <section class="hero checkout-hero">
+      <div class="hero-content">
+        <h1>Confirma tu pedido</h1>
+        <p>Revisa tu carrito y completa tus datos de entrega.</p>
+      </div>
+    </section>
+
+    <section class="checkout-layout">
+      <div class="checkout-panel checkout-products-panel">
+        <h2>Resumen de tu pedido</h2>
+        <div id="checkoutItems" class="checkout-items"></div>
+        <div class="checkout-total">
+          <span>Total estimado</span>
+          <strong id="checkoutTotal">USD 0.00</strong>
+        </div>
+      </div>
+
+      <!-- PERSONALIZAR CHECKOUT: este formulario es demostrativo, no procesa pagos reales. -->
+      <form class="checkout-panel checkout-form" id="shippingForm">
+        <h2>Datos de entrega</h2>
+        <p class="checkout-form-intro">Elige si quieres recibir tu pedido o retirarlo.</p>
+
+        <div class="checkout-mode">
+          <label><input type="radio" name="deliveryMode" value="envio" checked><span>Envío a domicilio</span></label>
+          <label><input type="radio" name="deliveryMode" value="retiro"><span>Retiro en tienda</span></label>
+        </div>
+
+        <div class="checkout-form-grid">
+          <div class="form-group"><label for="checkoutName">Nombre completo</label><input type="text" id="checkoutName" name="checkoutName" autocomplete="name" required></div>
+          <div class="form-group"><label for="checkoutPhone">Teléfono</label><input type="tel" id="checkoutPhone" name="checkoutPhone" autocomplete="tel" required></div>
+          <div class="form-group"><label for="checkoutEmail">Correo</label><input type="email" id="checkoutEmail" name="checkoutEmail" autocomplete="email" required></div>
+          <div class="form-group"><label for="checkoutRut">Documento / ID</label><input type="text" id="checkoutRut" name="checkoutRut" placeholder="Ej: 12.345.678-9"></div>
+        </div>
+
+        <div class="checkout-delivery-fields" id="deliveryFields">
+          <div class="form-group"><label for="checkoutAddress">Dirección</label><input type="text" id="checkoutAddress" name="checkoutAddress" autocomplete="street-address" required></div>
+          <div class="checkout-form-grid">
+            <div class="form-group"><label for="checkoutComuna">Ciudad / comuna</label><input type="text" id="checkoutComuna" name="checkoutComuna" required></div>
+            <div class="form-group"><label for="checkoutRegion">Región / estado</label><input type="text" id="checkoutRegion" name="checkoutRegion" required></div>
+          </div>
+          <div class="form-group"><label for="checkoutReference">Referencia para el envío</label><textarea id="checkoutReference" name="checkoutReference" rows="3" placeholder="Depto, casa, horario o indicaciones"></textarea></div>
+        </div>
+
+        <div class="checkout-pickup-note" id="pickupNote" hidden>
+          Te avisaremos por correo y teléfono cuando el pedido esté listo para retirar.
+        </div>
+
+        <div class="checkout-extras">
+          <label class="checkout-extra-option"><input type="checkbox" id="giftWrap" data-extra-price="5.00"><span><strong>Empaque especial</strong><small>+USD 5.00 adicional</small></span></label>
+          <label class="checkout-extra-option"><input type="checkbox" id="giftNote" data-extra-price="2.00"><span><strong>Añadir nota</strong><small>+USD 2.00 adicional</small></span></label>
+        </div>
+
+        <div class="form-group checkout-note-field" id="giftNoteField" hidden>
+          <label for="giftNoteText">Texto de la nota</label>
+          <textarea id="giftNoteText" name="giftNoteText" rows="3" placeholder="Escribe el mensaje para la nota" disabled></textarea>
+        </div>
+
+        <div class="form-group" id="checkoutCommentsGroup">
+          <label for="checkoutComments">Comentario adicional</label>
+          <textarea id="checkoutComments" name="checkoutComments" rows="3" placeholder="Talla, horario preferido o detalle importante"></textarea>
+        </div>
+
+        <div class="checkout-actions">
+          <button type="button" class="btn-secondary" onclick="window.location.href='productos.html'">Seguir comprando</button>
+          <button type="submit" class="btn-primary" id="confirmPayment">Confirmar pedido</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <!-- PERSONALIZAR MARCA: cambia el nombre y la descripción de la tienda. -->
+        <h4>Sobre [NOMBRE DE TU TIENDA]</h4>
+        <p>Plantilla adaptable para tiendas de ropa, accesorios, productos digitales o catálogos comerciales.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Enlaces rápidos</h4>
+        <ul>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Políticas de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <!-- PERSONALIZAR CONTACTO: reemplaza estos datos por los del negocio. -->
+        <h4>Contacto</h4>
+        <p>Email: contacto@tutienda.com</p>
+        <p>Tel: +56 9 1234 5678</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 [NOMBRE DE TU TIENDA]. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/carrito.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

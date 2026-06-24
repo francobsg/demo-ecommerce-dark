@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plantilla e-commerce responsive en HTML, CSS y JavaScript vanilla.">
+  <title>Contacto - Plantilla E-commerce</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- ================== NAVEGACIÓN ================== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- PERSONALIZAR LOGO: reemplaza img/logo-placeholder.svg por el logo real de la tienda. -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/logo-placeholder.svg" alt="Logo de la tienda">
+        </a>
+      </div>
+
+      <div class="nav-search">
+        <button type="button" id="headerSearchToggle" class="search-toggle" aria-label="Buscar">
+          <img src="img/icon-search.svg" alt="Buscar" class="search-icon">
+        </button>
+        <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Buscar productos...">
+      </div>
+
+      <!-- PERSONALIZAR MENÚ: puedes agregar o quitar enlaces según el negocio. -->
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link ">Inicio</a></li>
+        <li><a href="productos.html" class="nav-link ">Productos</a></li>
+        <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+        <li><a href="carrito.html" class="nav-link ">Carrito <span id="cartBadge" class="cart-badge">0</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ================== ENCABEZADO ================== -->
+  <header class="page-header">
+    <h1>Contacto</h1>
+    <p>PERSONALIZAR: cambia esta frase por el tono de tu marca.</p>
+  </header>
+
+  <!-- ================== CONTACTO ================== -->
+  <main class="container">
+    <section class="contacto-section">
+      <aside class="contacto-info">
+        <h2>Información de contacto</h2>
+
+        <!-- PERSONALIZAR DATOS: reemplaza ubicación, email, teléfono y horarios. -->
+        <div class="info-card"><h3>📍 Ubicación</h3><p>Av. Principal 1234<br>Ciudad, País</p></div>
+        <div class="info-card"><h3>📧 Email</h3><p><a href="mailto:contacto@tutienda.com">contacto@tutienda.com</a></p><p><a href="mailto:soporte@tutienda.com">soporte@tutienda.com</a></p></div>
+        <div class="info-card"><h3>📞 Teléfono</h3><p>+56 9 1234 5678</p><p>+56 2 1234 5678</p></div>
+        <div class="info-card"><h3>🕐 Horario</h3><p>Lunes a viernes: 9:00 - 18:00</p><p>Sábados: 10:00 - 14:00</p><p>Domingos: cerrado</p></div>
+      </aside>
+
+      <div class="contacto-form">
+        <h2>Envíanos un mensaje</h2>
+        <form id="formularioContacto" class="form">
+          <div class="form-group"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" required><span class="error-msg" id="errorNombre"></span></div>
+          <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required><span class="error-msg" id="errorEmail"></span></div>
+          <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono"><span class="error-msg" id="errorTelefono"></span></div>
+          <div class="form-group">
+            <label for="asunto">Asunto *</label>
+            <select id="asunto" name="asunto" required>
+              <option value="">-- Selecciona un asunto --</option>
+              <option value="consulta">Consulta general</option>
+              <option value="pedido">Problema con pedido</option>
+              <option value="devolucion">Devoluciones</option>
+              <option value="otro">Otro</option>
+            </select>
+            <span class="error-msg" id="errorAsunto"></span>
+          </div>
+          <div class="form-group detalle-otro" id="detalleOtroGroup"><label for="detalleOtro">Explica tu problema o motivo de contacto *</label><textarea id="detalleOtro" name="detalleOtro" rows="4"></textarea><span class="error-msg" id="errorDetalleOtro"></span></div>
+          <div class="form-group"><label for="mensaje">Mensaje *</label><textarea id="mensaje" name="mensaje" rows="5" required></textarea><span class="error-msg" id="errorMensaje"></span></div>
+          <div class="form-group"><label class="checkbox"><input type="checkbox" id="terminos" name="terminos" required><span>Acepto los términos y condiciones *</span></label><span class="error-msg" id="errorTerminos"></span></div>
+          <button type="submit" class="btn-primary">Enviar mensaje</button>
+          <div class="success-msg" id="successMsg" style="display: none;">¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================== FOOTER ================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <!-- PERSONALIZAR MARCA: cambia el nombre y la descripción de la tienda. -->
+        <h4>Sobre [NOMBRE DE TU TIENDA]</h4>
+        <p>Plantilla adaptable para tiendas de ropa, accesorios, productos digitales o catálogos comerciales.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Enlaces rápidos</h4>
+        <ul>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="#">Políticas de privacidad</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <!-- PERSONALIZAR CONTACTO: reemplaza estos datos por los del negocio. -->
+        <h4>Contacto</h4>
+        <p>Email: contacto@tutienda.com</p>
+        <p>Tel: +56 9 1234 5678</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 [NOMBRE DE TU TIENDA]. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/carrito.js"></script>
+  <script src="js/formulario.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', actualizarBadgeCarrito);
+  </script>
+</body>
+</html>
